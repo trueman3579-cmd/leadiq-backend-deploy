@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><title>LeadIQ Bookmarklet</title></head>
+<body style="font-family:sans-serif;max-width:600px;margin:50px auto;padding:20px">
+<h2>📌 LeadIQ Bookmarklet</h2>
+<p>Drag this link to your bookmarks bar. Click it on any job page to capture the lead.</p>
+
+<p style="font-size:24px;padding:15px;background:#f0fdf4;border:2px dashed #22c55e;text-align:center;border-radius:8px">
+  <a href="javascript:(function(){
+    fetch('https://YOUR-API-URL/api/leads/ingest', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        url:location.href,
+        html:document.documentElement.outerHTML,
+        title:document.title
+      })
+    }).then(r=>r.json()).then(d=>alert('✅ Lead captured from '+d.source)).catch(()=>alert('❌ Failed'));
+  })()" style="text-decoration:none;color:#16a34a;font-weight:bold">
+    📥 Mine This Lead
+  </a>
+</p>
+
+<h3>How to use:</h3>
+<ol>
+  <li>Drag the green link above to your browser's bookmarks bar</li>
+  <li>Browse any job site (LinkedIn, Indeed, Naukri, etc.)</li>
+  <li>Click the bookmarklet → lead is captured automatically</li>
+  <li>View all captured leads on the LeadIQ dashboard</li>
+</ol>
+
+<h3>Troubleshooting:</h3>
+<p>If the bookmarklet doesn't work, replace <code>YOUR-API-URL</code> with your actual backend URL.</p>
+</body>
+</html>

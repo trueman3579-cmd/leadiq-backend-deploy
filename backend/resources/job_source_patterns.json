@@ -1,0 +1,156 @@
+{
+  "sources": {
+    "indeed": {
+      "fetch_mode": "stealth",
+      "base_url": "https://in.indeed.com",
+      "search_path": "/jobs",
+      "not_found_indicators": ["no results", "no jobs found", "we couldn't find any"],
+      "apply_patterns": ["apply now", "apply", "easy apply"],
+      "expired_patterns": ["job is no longer available", "position has been filled", "this job has expired"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "naukri": {
+      "fetch_mode": "stealth",
+      "base_url": "https://www.naukri.com",
+      "search_path": "/job-search",
+      "not_found_indicators": ["page not found", "job not found", "no longer accepting"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["job not found", "no longer accepting"],
+      "rate_limit_codes": [429, 503],
+      "job_id_format": "numeric"
+    },
+    "linkedin_jobs": {
+      "fetch_mode": "stealth",
+      "base_url": "https://www.linkedin.com/jobs",
+      "search_path": "/search",
+      "not_found_indicators": ["page not found", "this job is no longer accepting", "job has expired"],
+      "apply_patterns": ["easy apply", "apply", "submit application"],
+      "expired_patterns": ["this job is no longer accepting", "job has expired", "page not found"],
+      "redirect_not_found": "/jobs/search/",
+      "rate_limit_codes": [429],
+      "waf_fingerprints": ["challenge", "cf-challenge"],
+      "job_id_format": "numeric"
+    },
+    "internshala": {
+      "fetch_mode": "dynamic",
+      "base_url": "https://internshala.com",
+      "search_path": "/internships",
+      "not_found_indicators": ["internship not found", "no longer accepting"],
+      "apply_patterns": ["apply now", "apply"],
+      "expired_patterns": ["internship not found", "no longer accepting"],
+      "rate_limit_codes": [429],
+      "job_id_format": "numeric"
+    },
+    "shine": {
+      "fetch_mode": "dynamic",
+      "base_url": "https://www.shine.com",
+      "search_path": "/job-search",
+      "not_found_indicators": ["page not found", "job not available"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["job not available", "page not found"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "cutshort": {
+      "fetch_mode": "static",
+      "base_url": "https://cutshort.io",
+      "not_found_indicators": ["not found", "no jobs"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found", "expired"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "hirect": {
+      "fetch_mode": "static",
+      "base_url": "https://hirect.in",
+      "not_found_indicators": ["not found", "no jobs"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "instahyre": {
+      "fetch_mode": "static",
+      "base_url": "https://www.instahyre.com",
+      "not_found_indicators": ["not found", "no jobs"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found"],
+      "rate_limit_codes": [429],
+      "job_id_format": "numeric"
+    },
+    "timesjobs": {
+      "fetch_mode": "dynamic",
+      "base_url": "https://www.timesjobs.com",
+      "not_found_indicators": ["not found", "no jobs"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found", "expired"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "weekday": {
+      "fetch_mode": "static",
+      "base_url": "https://www.weekday.work",
+      "not_found_indicators": ["not found", "no jobs"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    },
+    "employment_news": {
+      "fetch_mode": "static",
+      "base_url": "https://employmentnews.gov.in",
+      "not_found_indicators": ["not found", "no results"],
+      "apply_patterns": ["apply", "apply now"],
+      "expired_patterns": ["not found", "closed"],
+      "rate_limit_codes": [429],
+      "job_id_format": "alphanumeric"
+    }
+  },
+  "ats_patterns": {
+    "ashby": {
+      "careers_pattern": "https://jobs.ashbyhq.com/{slug}",
+      "job_pattern": "https://jobs.ashbyhq.com/{slug}/{id}"
+    },
+    "greenhouse": {
+      "careers_pattern": "https://job-boards.greenhouse.io/{slug}",
+      "job_pattern": "https://job-boards.greenhouse.io/{slug}/jobs/{id}",
+      "api_pattern": "https://boards-api.greenhouse.io/v1/boards/{slug}/jobs",
+      "expired_signal": "error=true"
+    },
+    "lever": {
+      "careers_pattern": "https://jobs.lever.co/{slug}",
+      "job_pattern": "https://jobs.lever.co/{slug}/{id}"
+    },
+    "workable": {
+      "job_pattern": "https://apply.workable.com/{slug}"
+    }
+  },
+  "quality_queries": {
+    "role_match": [
+      "web developer hiring",
+      "frontend developer",
+      "react developer",
+      "full stack developer",
+      "javascript developer"
+    ],
+    "company_signal": [
+      "agency hiring web developers",
+      "company actively hiring",
+      "growing team",
+      "startup hiring"
+    ],
+    "application_live": [
+      "apply now",
+      "submit application",
+      "easy apply",
+      "start application"
+    ],
+    "conversion": [
+      "immediate joining",
+      "urgent hiring",
+      "quick apply",
+      "direct hire"
+    ]
+  }
+}

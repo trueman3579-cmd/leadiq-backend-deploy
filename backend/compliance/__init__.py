@@ -1,0 +1,1 @@
+"""backend/compliance/__init__.py — Legal compliance & TOS registry module."""
