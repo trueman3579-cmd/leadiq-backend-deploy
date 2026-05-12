@@ -12,7 +12,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    model_config = ConfigDict(env_file=".env", case_sensitive=True)
+    model_config = ConfigDict(env_file=".env", case_sensitive=True, extra="ignore")
     # ── Server ────────────────────────────────────────────────────────────────
     APP_NAME: str = "LeadIQ"
     DEBUG: bool = False
