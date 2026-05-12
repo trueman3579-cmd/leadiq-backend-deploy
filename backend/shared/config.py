@@ -27,7 +27,12 @@ class Settings(BaseSettings):
     REDIS_PORT: int = 6379
 
     # ── CORS ──────────────────────────────────────────────────────────────────
-    ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
+    ALLOWED_ORIGINS: list[str] = [
+        "http://localhost:3000",
+        "https://leadiq-dashboard.vercel.app",
+        "https://leadiq-dashboard-*.vercel.app",
+        "https://leadiq-dashboard-git-*.vercel.app",
+    ]
 
     # ── Gemini / GCP ─────────────────────────────────────────────────────────
     GEMINI_API_KEY: str = ""

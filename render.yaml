@@ -3,9 +3,11 @@ services:
     name: leadiq-backend
     runtime: python
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /api/health/live
+    healthCheckTimeout: 100
+    numInstances: 1
     envVars:
       - key: PYTHONPATH
         value: /opt/render/project/src/backend
